@@ -40,18 +40,23 @@ public class LeafFactory {
         }
     }
 
+    public void printObjects() {
+        System.out.println(this.singletonObjects);
+    }
     // Move and adjust to unit test later
-    public void manualTestOne() {
-        System.out.println("manual test 1");
-        PersonController person = (PersonController) this.singletonObjects.get("com.tree.crust.example.PersonController");
-        person.getWebService();
-        System.out.println("manual test passed!");
-    }
+    // public void manualTestOne() {
+    // System.out.println("manual test 1");
+    // PersonController person = (PersonController) this.singletonObjects
+    // .get("com.tree.crust.example.PersonController");
+    // person.getWebService();
+    // System.out.println("manual test passed!");
+    // }
 
-    public void manualTestTwo() {
-        System.out.println("manual test 2");
-        PersonController person = (PersonController) singletonObjects.get("com.tree.crust.example.PersonController");
-        person.getWebService();
-        System.out.println("manual test passed!");
-    }
+    // public void manualTestTwo() {
+    // System.out.println("manual test 2");
+    // PersonController person = (PersonController)
+    // singletonObjects.get("com.tree.crust.example.PersonController");
+    // person.getWebService();
+    // System.out.println("manual test passed!");
+    // }
 }

@@ -21,8 +21,9 @@ public class CrustApplication {
             // TODO: change this to factory instead of create object here
             LeafFactory leafFactory = new LeafFactory();
             leafFactory.createContainer(clazzNames);
-            leafFactory.manualTestOne();
-            leafFactory.manualTestTwo();
+            leafFactory.printObjects();
+//            leafFactory.manualTestOne();
+//            leafFactory.manualTestTwo();
 
         } catch (IOException | IllegalAccessException ex) {
             System.out.println(ex);
