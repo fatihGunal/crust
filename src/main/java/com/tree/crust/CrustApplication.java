@@ -2,6 +2,9 @@ package com.tree.crust;
 
 import java.io.IOException;
 import java.util.HashSet;
+
+import com.tree.crust.IoC.Container;
+import com.tree.crust.example.PersonController;
 import com.tree.crust.fw.ClassLocator;
 import com.tree.crust.fw.LeafFactory;
 import com.tree.crust.fw.WebComponent;
@@ -16,6 +19,16 @@ public class CrustApplication {
     }
 
     public static void run(Class<?> primarySource) {
+        Container container = Container.initialize(primarySource);
+
+        PersonController controller = (PersonController) container
+                .getSingletonObjects()
+                .get("com.tree.crust.example.PersonController");
+        controller.getWebService();
+    }
+
+    @Deprecated
+    private static void runDepricated(Class<?> primarySource) {
         try {
             HashSet<String> clazzNames = ClassLocator.getClassNamesFrom(primarySource);
 
@@ -31,8 +44,5 @@ public class CrustApplication {
         } catch (IOException | IllegalAccessException ex) {
             System.out.println(ex);
         }
-    }
-
-    public CrustApplication() {
     }
 }

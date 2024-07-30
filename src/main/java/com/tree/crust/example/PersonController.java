@@ -1,7 +1,8 @@
 package com.tree.crust.example;
 
-import com.tree.crust.fw.annotations.Autowired;
-import com.tree.crust.fw.annotations.Component;
+
+import com.tree.crust.IoC.annotations.Autowired;
+import com.tree.crust.IoC.annotations.Component;
 
 /**
  * PersonController

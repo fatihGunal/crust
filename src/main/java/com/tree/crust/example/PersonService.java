@@ -1,10 +1,11 @@
 package com.tree.crust.example;
 
-import com.tree.crust.fw.annotations.Component;
+
+import com.tree.crust.IoC.annotations.Component;
 
 @Component
 public class PersonService {
     public void printService() {
-        System.out.println("PersonService.printService()");
+        System.out.println("Dependency injected!");
     }
 }
