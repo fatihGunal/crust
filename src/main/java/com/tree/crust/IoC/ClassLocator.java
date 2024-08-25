@@ -5,6 +5,10 @@ import java.net.URL;
 import java.util.*;
 
 class ClassLocator {
+
+    private static final String TARGET_CLASSES = "target/classes/";
+    private static final String CLASS_EXTENSION = ".class";
+
     static HashSet<String> scanClassNamesFrom(Class<?> primarySource) {
         HashSet<String> classNames = new HashSet<>();
         String packageName = primarySource.getPackage().getName();
@@ -28,7 +32,7 @@ class ClassLocator {
 
         while (!stack.isEmpty()) {
             File current = stack.pop();
-            if (current.isFile() && current.getName().endsWith(".class")) {
+            if (current.isFile() && current.getName().endsWith(CLASS_EXTENSION)) {
                 classNames.add(getClassNameBasePackage(current.getAbsolutePath()));
             } else if (current.isDirectory()) {
                 File[] files = current.listFiles();
@@ -45,13 +49,13 @@ class ClassLocator {
 
     private static String getClassNameBasePackage(String clazzAbsolutePath) {
         String path = clazzAbsolutePath;
-        int targetIndex = path.indexOf("target/classes/");
+        int targetIndex = path.indexOf(TARGET_CLASSES);
         if (targetIndex == -1) {
             return "";
         }
 
-        String packageNameWithFile = path.substring(targetIndex + "target/classes/".length());
-        String packageName = packageNameWithFile.replace(File.separatorChar, '.').replace(".class", "");
+        String packageNameWithFile = path.substring(targetIndex + TARGET_CLASSES.length());
+        String packageName = packageNameWithFile.replace(File.separatorChar, '.').replace(CLASS_EXTENSION, "");
 
         return packageName;
     }
