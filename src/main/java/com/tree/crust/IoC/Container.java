@@ -4,10 +4,8 @@ package com.tree.crust.IoC;
 import com.tree.crust.IoC.annotations.Autowired;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Container {
@@ -42,7 +40,7 @@ public class Container {
         return Instantiate.instantiateMap(classNames);
     }
 
-    public void createBeans() {
+    private void createBeans() {
         try {
             for (Map.Entry<String, Object> entry : singletonObjects.entrySet()) {
                 Class<?> clazz = entry.getValue().getClass();
