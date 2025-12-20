@@ -13,11 +13,12 @@ public class CrustApplication {
     }
 
     public static void run(Class<?> primarySource) {
-        Container container = Container.initialize(primarySource);
-
-        PersonController controller = (PersonController) container
-                .getSingletonObjects()
-                .get("com.tree.crust.example.PersonController");
-        controller.getWebService();
+        Container.initialize(primarySource);
+//        Container container = Container.initialize(primarySource);
+//
+//        PersonController controller = (PersonController) container
+//                .getSingletonObjects()
+//                .get("com.tree.crust.example.PersonController");
+//        controller.getWebService();
     }
 }

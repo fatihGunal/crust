@@ -75,23 +75,6 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-
-<!--        TODO -> this should not be necessary when ClassLocator is smart enough to
-                    scan target/classes instead of via JAR: Also see TO-DO in ClassLocator.java    -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <addClasspath>true</addClasspath>
-                <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>com.tree.crust.CrustApplication</mainClass>
-              </manifest>
-            </archive>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
   </build>
